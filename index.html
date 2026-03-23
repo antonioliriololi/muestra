@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculadora de Muestra</title>
+<title>Calculadora de Muestra — AntoMatic v2</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -14,7 +14,6 @@ body {
   max-width: 900px;
   margin: 0 auto;
 }
-
 header {
   border-bottom: 3px solid #000;
   padding-bottom: 14px;
@@ -23,266 +22,93 @@ header {
 header h1 { font-size: 1.3rem; text-transform: uppercase; letter-spacing: 2px; }
 header p  { font-size: 0.78rem; color: #555; margin-top: 4px; }
 
-/* CARD */
-.metodo-card {
-  border: 2px solid #000;
-  margin-bottom: 32px;
-}
+.metodo-card { border: 2px solid #000; margin-bottom: 32px; }
 .metodo-header {
-  background: #000;
-  color: #fff;
-  padding: 13px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  background: #000; color: #fff; padding: 13px 20px;
+  display: flex; justify-content: space-between; align-items: flex-start;
 }
-.metodo-num {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  opacity: 0.6;
-  margin-bottom: 3px;
-}
-.metodo-titulo {
-  font-size: 1.05rem;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-}
-.metodo-anio {
-  font-size: 1.4rem;
-  font-weight: bold;
-  opacity: 0.35;
-  letter-spacing: 1px;
-}
-
+.metodo-num { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; margin-bottom: 3px; }
+.metodo-titulo { font-size: 1.05rem; font-weight: bold; letter-spacing: 0.5px; }
+.metodo-anio { font-size: 1.4rem; font-weight: bold; opacity: 0.35; letter-spacing: 1px; }
 .metodo-body { padding: 20px; }
 
-/* META INFO */
-.meta-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 24px;
-  margin-bottom: 16px;
-  font-size: 0.81rem;
-}
-.meta-item strong {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #777;
-  display: block;
-  margin-bottom: 2px;
-}
+.meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; margin-bottom: 16px; font-size: 0.81rem; }
+.meta-item strong { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #777; display: block; margin-bottom: 2px; }
 
-/* DESCRIPCION */
 .descripcion {
-  font-size: 0.82rem;
-  line-height: 1.7;
-  color: #222;
-  margin-bottom: 18px;
-  padding: 12px 15px;
-  background: #f5f5f5;
-  border-left: 4px solid #000;
+  font-size: 0.82rem; line-height: 1.7; color: #222; margin-bottom: 18px;
+  padding: 12px 15px; background: #f5f5f5; border-left: 4px solid #000;
 }
 
-/* INPUTS */
-.inputs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 14px;
-  margin-bottom: 18px;
-}
-.input-grupo label {
-  display: block;
-  font-size: 0.68rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 3px;
-  color: #333;
-}
-.input-grupo .hint {
-  font-size: 0.63rem;
-  color: #999;
-  margin-bottom: 5px;
-  line-height: 1.4;
-}
-input[type="number"], select {
-  width: 100%;
-  font-family: Arial, sans-serif;
-  font-size: 0.88rem;
-  padding: 8px 10px;
-  border: 1px solid #000;
-  background: #fff;
-}
-input[type="range"] {
-  width: 100%;
-  margin-top: 6px;
-  accent-color: #000;
-}
-.range-val {
-  font-size: 0.85rem;
-  font-weight: bold;
-  color: #000;
-  display: inline-block;
-  margin-top: 3px;
-}
+.inputs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 18px; }
+.input-grupo label { display: block; font-size: 0.68rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; color: #333; }
+.input-grupo .hint { font-size: 0.63rem; color: #999; margin-bottom: 5px; line-height: 1.4; }
+input[type="number"], select { width: 100%; font-family: Arial, sans-serif; font-size: 0.88rem; padding: 8px 10px; border: 1px solid #000; background: #fff; }
+input[type="range"] { width: 100%; margin-top: 6px; accent-color: #000; }
+.range-val { font-size: 0.85rem; font-weight: bold; color: #000; display: inline-block; margin-top: 3px; }
 
-/* RESULTADO */
 .resultado-strip {
-  background: #f4f4f4;
-  color: #000;
-  border: 2px solid #000;
-  border-left: 6px solid #000;
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 18px;
+  background: #f4f4f4; color: #000; border: 2px solid #000; border-left: 6px solid #000;
+  padding: 14px 20px; display: flex; align-items: center; gap: 20px; margin-bottom: 18px;
 }
-.resultado-n {
-  font-size: 1.44rem;
-  font-weight: bold;
-  min-width: 70px;
-  letter-spacing: -0.5px;
-}
-.resultado-label-n {
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #555;
-  margin-bottom: 2px;
-}
-.resultado-desc {
-  font-size: 0.78rem;
-  line-height: 1.6;
-  color: #333;
-}
+.resultado-n { font-size: 1.44rem; font-weight: bold; min-width: 70px; letter-spacing: -0.5px; }
+.resultado-label-n { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 1px; color: #555; margin-bottom: 2px; }
+.resultado-desc { font-size: 0.78rem; line-height: 1.6; color: #333; }
 
-/* FORMULA BOX */
-.formula-section {
-  border: 1px dashed #bbb;
-  padding: 16px;
-  background: #fff;
-}
-.f-label {
-  font-size: 0.62rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #999;
-  margin-bottom: 10px;
-}
+.formula-section { border: 1px dashed #bbb; padding: 16px; background: #fff; }
+.f-label { font-size: 0.62rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 10px; }
+
 .formula-render {
-  text-align: center;
-  font-size: 1.15rem;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  padding: 16px 0;
-  margin-bottom: 14px;
-  line-height: 2.2;
-  background: #fff;
+  text-align: center; font-size: 1.15rem; font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 16px 0; margin-bottom: 14px; line-height: 2.2; background: #fff;
 }
 .frac {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  vertical-align: middle;
-  margin: 0 3px;
-  font-size: 1.05rem;
+  display: inline-flex; flex-direction: column; align-items: center;
+  vertical-align: middle; margin: 0 3px; font-size: 1.05rem;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.frac .num {
-  border-bottom: 1.5px solid #000;
-  padding: 0 6px 3px;
-  text-align: center;
-}
-.frac .den {
-  padding: 3px 6px 0;
-  text-align: center;
-}
+.frac .num { border-bottom: 1.5px solid #000; padding: 0 6px 3px; text-align: center; }
+.frac .den { padding: 3px 6px 0; text-align: center; }
 
 .latex-box {
-  font-family: 'Courier New', monospace;
-  font-size: 0.73rem;
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 9px 12px;
-  word-break: break-all;
-  line-height: 1.5;
-  margin-bottom: 8px;
-  white-space: pre-wrap;
+  font-family: 'Courier New', monospace; font-size: 0.73rem; background: #fff;
+  border: 1px solid #ccc; padding: 9px 12px; word-break: break-all;
+  line-height: 1.5; margin-bottom: 8px; white-space: pre-wrap;
 }
 .btn-copy {
-  font-family: Arial, sans-serif;
-  font-size: 0.72rem;
-  font-weight: bold;
-  padding: 5px 14px;
-  border: 1px solid #000;
-  background: #fff;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-family: Arial, sans-serif; font-size: 0.72rem; font-weight: bold;
+  padding: 5px 14px; border: 1px solid #000; background: #fff;
+  cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
 }
 .btn-copy:hover { background: #f0f0f0; }
-.copy-ok {
-  font-size: 0.72rem;
-  color: #555;
-  display: none;
-  margin-left: 8px;
-}
-.donde {
-  margin-top: 12px;
-  font-size: 0.72rem;
-  color: #555;
-  line-height: 1.7;
-}
+.copy-ok { font-size: 0.72rem; color: #555; display: none; margin-left: 8px; }
+.donde { margin-top: 12px; font-size: 0.72rem; color: #555; line-height: 1.7; }
 .donde strong { color: #000; }
 
 /* TABLA PLS */
-.tabla-pls {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.82rem;
-  margin-bottom: 14px;
+.tabla-pls { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-bottom: 6px; }
+.tabla-pls th { background: #000; color: #fff; padding: 8px 12px; text-align: center; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.tabla-pls td { padding: 7px 12px; text-align: center; border-bottom: 1px solid #e8e8e8; }
+.tabla-pls tr.hl td { background: #000; color: #fff; font-weight: bold; }
+.tabla-pls tfoot td { font-size: 0.66rem; color: #777; text-align: left; padding-top: 8px; border-bottom: none; font-style: italic; }
+
+/* FORMULA PLS — tres ecuaciones */
+.formula-pls-block {
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: 16px; padding: 18px 24px 10px; margin-bottom: 14px;
+  font-family: Georgia, 'Times New Roman', Times, serif; font-size: 1.05rem;
+  background: #fff;
 }
-.tabla-pls th {
-  background: #000;
-  color: #fff;
-  padding: 8px 12px;
-  text-align: center;
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.tabla-pls td {
-  padding: 7px 12px;
-  text-align: center;
-  border-bottom: 1px solid #e8e8e8;
-}
-.tabla-pls tr.hl td {
-  background: #000;
-  color: #fff;
-  font-weight: bold;
+.formula-pls-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.sig-label {
+  font-size: 0.69rem; font-family: Arial, sans-serif; font-weight: bold;
+  background: #000; color: #fff; padding: 3px 9px; letter-spacing: 0.5px;
+  white-space: nowrap; min-width: 80px; text-align: center;
 }
 
-/* NOTA ESPECIAL */
-.nota-especial {
-  font-size: 0.72rem;
-  background: #fffbe6;
-  border: 1px solid #e0c800;
-  padding: 8px 12px;
-  margin-bottom: 14px;
-  line-height: 1.5;
-}
+.parrafo-box { font-size: 0.83rem; line-height: 1.8; margin-bottom: 10px; padding: 12px; background: #f8f8f8; border-left: 3px solid #000; }
 
-footer {
-  margin-top: 40px;
-  padding-top: 10px;
-  border-top: 1px solid #ccc;
-  font-size: 0.7rem;
-  color: #aaa;
-  text-align: center;
-}
+footer { margin-top: 40px; padding-top: 10px; border-top: 1px solid #ccc; font-size: 0.7rem; color: #aaa; text-align: center; }
 </style>
 </head>
 <body>
@@ -292,30 +118,22 @@ footer {
   <p>Idea de Antonio Lirio · AntoMatic Tools · 4 métodos</p>
 </header>
 
-<!-- ══════════════════════════════════════════════════════════ -->
-<!-- MÉTODO 1 — COCHRAN CORREGIDA -->
-<!-- ══════════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════ MÉTODO 1 — COCHRAN -->
 <div class="metodo-card">
   <div class="metodo-header">
-    <div>
-      <div class="metodo-num">Método 1</div>
-      <div class="metodo-titulo">Cochran Corregida</div>
-    </div>
+    <div><div class="metodo-num">Método 1</div><div class="metodo-titulo">Cochran Corregida</div></div>
     <div class="metodo-anio">1977</div>
   </div>
   <div class="metodo-body">
-
     <div class="meta-grid">
       <div class="meta-item"><strong>Autor(es)</strong>Cochran, William G.</div>
       <div class="meta-item"><strong>Año de publicación</strong>1977</div>
-      <div class="meta-item"><strong>Referencia</strong>Cochran, W. G. (1977). <em>Sampling Techniques</em> (3.ª ed.). John Wiley &amp; Sons.</div>
+      <div class="meta-item"><strong>Referencia</strong>Cochran, W. G. (1977). <em>Sampling techniques</em> (3.ª ed.). John Wiley &amp; Sons.</div>
       <div class="meta-item"><strong>Tipo de población</strong>Finita y conocida · Variable categórica (proporción)</div>
     </div>
-
     <div class="descripcion">
-      Fórmula estándar para <strong>poblaciones finitas</strong> cuando la variable de interés es categórica (se expresa como proporción <em>p</em>). Aplica un factor de corrección que reduce la muestra al conocer N. Es la más citada en ciencias sociales, de la salud y administrativas para estudios cuantitativos. Cuando N es muy grande tiende a la fórmula de Cochran para poblaciones infinitas.
+      Fórmula estándar para <strong>poblaciones finitas</strong> cuando la variable de interés es categórica (se expresa como proporción <em>p</em>). Aplica un factor de corrección que reduce la muestra al conocer N. Es la más citada en ciencias sociales, de la salud y administrativas para estudios cuantitativos.
     </div>
-
     <div class="inputs-grid">
       <div class="input-grupo">
         <label>N — Tamaño de la población</label>
@@ -333,7 +151,7 @@ footer {
       </div>
       <div class="input-grupo">
         <label>p — Proporción esperada</label>
-        <div class="hint">Usa 0.5 si no tienes datos previos (máxima varianza). Rango: 0 a 1</div>
+        <div class="hint">Usa 0.5 si no tienes datos previos (máxima varianza)</div>
         <input type="range" id="c-p" min="0.1" max="0.9" step="0.1" value="0.5" oninput="calcCochran()">
         <span class="range-val" id="c-p-val">0.50</span>
       </div>
@@ -344,15 +162,10 @@ footer {
         <span class="range-val" id="c-d-val">0.05</span>
       </div>
     </div>
-
     <div class="resultado-strip">
-      <div>
-        <div class="resultado-label-n">n =</div>
-        <div class="resultado-n" id="c-res">—</div>
-      </div>
+      <div><div class="resultado-label-n">n =</div><div class="resultado-n" id="c-res">—</div></div>
       <div class="resultado-desc" id="c-desc">Ingresa los valores para calcular la muestra.</div>
     </div>
-
     <div class="formula-section">
       <div class="f-label">Fórmula original — copia y pega en tu proyecto de tesis</div>
       <div class="formula-render">
@@ -362,65 +175,44 @@ footer {
           <span class="den">(<i>N</i>&minus;1)&thinsp;<i>d</i>² &plus; <i>z</i>²&thinsp;<i>p</i>(1&minus;<i>p</i>)</span>
         </span>
       </div>
-
-      <div class="f-label">LaTeX — para Word (insertar ecuación) o documentos .tex</div>
+      <div class="f-label">LaTeX</div>
       <div class="latex-box">n = \dfrac{N \, z^2 \, p(1-p)}{(N-1)\,d^2 + z^2 \, p(1-p)}</div>
-      <button class="btn-copy" onclick="copiarTexto(this, 'n = \\dfrac{N \\, z^2 \\, p(1-p)}{(N-1)\\,d^2 + z^2 \\, p(1-p)}')">Copiar LaTeX</button>
+      <button class="btn-copy" onclick="copiarTexto(this,'n = \\dfrac{N \\, z^2 \\, p(1-p)}{(N-1)\\,d^2 + z^2 \\, p(1-p)}')">Copiar LaTeX</button>
       <span class="copy-ok">✔ Copiado</span>
-
-      <div class="donde">
-        <strong>Donde:</strong> N = tamaño de la población &nbsp;·&nbsp; z = valor crítico según nivel de confianza &nbsp;·&nbsp;
-        p = proporción esperada del atributo &nbsp;·&nbsp; (1−p) = q, proporción complementaria &nbsp;·&nbsp;
-        d = error de estimación máximo admisible (en decimal)
-      </div>
-
+      <div class="donde"><strong>Donde:</strong> N = tamaño de la población · z = valor crítico según nivel de confianza · p = proporción esperada · (1−p) = q, proporción complementaria · d = error de estimación (decimal)</div>
       <div style="margin-top:16px;">
-        <div class="f-label">Párrafo para tu proyecto de tesis — se actualiza con tus valores</div>
-        <div id="c-parrafo" style="font-size:0.83rem; line-height:1.8; margin-bottom:10px; padding:12px; background:#f8f8f8; border-left:3px solid #000;">
-          El tamaño de muestra se determinó aplicando la fórmula de Cochran corregida para poblaciones finitas (Cochran, 1977), considerando una población de <strong id="c-ref-N">250</strong> unidades, un nivel de confianza del <strong id="c-ref-Z">95 %</strong> (Z = 1.96), una proporción esperada de <strong id="c-ref-p">0.50</strong>, una proporción complementaria de <strong id="c-ref-q">0.50</strong> y un error de estimación del <strong id="c-ref-d">5 %</strong>, obteniéndose una muestra de <strong id="c-ref-n">—</strong> participantes.
-        </div>
+        <div class="f-label">Párrafo para tu proyecto de tesis</div>
+        <div class="parrafo-box">El tamaño de muestra se determinó aplicando la fórmula de Cochran corregida para poblaciones finitas (Cochran, 1977), considerando una población de <strong id="c-ref-N">250</strong> unidades, un nivel de confianza del <strong id="c-ref-Z">95 %</strong> (Z = <span id="c-ref-Zv">1.96</span>), una proporción esperada de <strong id="c-ref-p">0.50</strong>, una proporción complementaria de <strong id="c-ref-q">0.50</strong> y un error de estimación del <strong id="c-ref-d">5 %</strong>, obteniéndose una muestra de <strong id="c-ref-n">—</strong> participantes.</div>
         <button class="btn-copy" onclick="copiarParrafoCochran()">Copiar párrafo de tesis</button>
         <span class="copy-ok" id="c-copy-ok">✔ Copiado</span>
       </div>
-
       <div style="margin-top:16px;">
-        <div class="f-label">Referencia APA 7 — para tu lista de referencias</div>
-        <div class="latex-box">Cochran, W. G. (1977). <em>Sampling Techniques</em> (3.ª ed.). John Wiley &amp; Sons.</div>
-        <button class="btn-copy" onclick="copiarTexto(this, 'Cochran, W. G. (1977). Sampling Techniques (3.ª ed.). John Wiley & Sons.')">Copiar referencia APA 7</button>
+        <div class="f-label">Referencia APA 7</div>
+        <div class="latex-box">Cochran, W. G. (1977). Sampling techniques (3.ª ed.). John Wiley &amp; Sons.</div>
+        <button class="btn-copy" onclick="copiarTexto(this,'Cochran, W. G. (1977). Sampling techniques (3.ª ed.). John Wiley & Sons.')">Copiar referencia APA 7</button>
         <span class="copy-ok">✔ Copiado</span>
-        &nbsp;&nbsp;
-        <button class="btn-copy" onclick="descargarRIS('cochran')">⬇ Descargar .ris (Zotero / Mendeley)</button>
+        &nbsp;&nbsp;<button class="btn-copy" onclick="descargarRIS('cochran')">⬇ Descargar .ris</button>
       </div>
-
     </div>
-
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════ -->
-<!-- MÉTODO 2 — YAMANE -->
-<!-- ══════════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════ MÉTODO 2 — YAMANE -->
 <div class="metodo-card">
   <div class="metodo-header">
-    <div>
-      <div class="metodo-num">Método 2</div>
-      <div class="metodo-titulo">Yamane</div>
-    </div>
+    <div><div class="metodo-num">Método 2</div><div class="metodo-titulo">Yamane</div></div>
     <div class="metodo-anio">1967</div>
   </div>
   <div class="metodo-body">
-
     <div class="meta-grid">
       <div class="meta-item"><strong>Autor(es)</strong>Yamane, Taro</div>
       <div class="meta-item"><strong>Año de publicación</strong>1967</div>
-      <div class="meta-item"><strong>Referencia</strong>Yamane, T. (1967). <em>Statistics: An Introductory Analysis</em> (2.ª ed.). Harper &amp; Row.</div>
-      <div class="meta-item"><strong>Tipo de población</strong>Finita · Simplicación asumiendo p = 0.5</div>
+      <div class="meta-item"><strong>Referencia</strong>Yamane, T. (1967). <em>Statistics: An introductory analysis</em> (2.ª ed.). Harper &amp; Row.</div>
+      <div class="meta-item"><strong>Tipo de población</strong>Finita · Simplificación asumiendo p = 0.5</div>
     </div>
-
     <div class="descripcion">
-      Simplificación de la fórmula de Cochran que asume la <strong>máxima varianza posible</strong> (p = 0.5, q = 0.5), eliminando la necesidad de estimar la proporción. Produce muestras ligeramente más conservadoras cuando p ≠ 0.5. Ampliamente usada en ciencias sociales latinoamericanas por su facilidad de aplicación.
+      Simplificación de la fórmula de Cochran que asume la <strong>máxima varianza posible</strong> (p = 0.5, q = 0.5), eliminando la necesidad de estimar la proporción. Ampliamente usada en ciencias sociales latinoamericanas por su facilidad de aplicación.
     </div>
-
     <div class="inputs-grid">
       <div class="input-grupo">
         <label>N — Tamaño de la población</label>
@@ -429,86 +221,57 @@ footer {
       <div class="input-grupo">
         <label>e — Margen de error</label>
         <div class="hint">Fijo en 5 % (0.05) — estándar del método</div>
-        <div style="font-size:1.1rem; font-weight:bold; padding:8px 0; letter-spacing:1px;">e = 0.05 &nbsp;(5 %)</div>
+        <div style="font-size:1.1rem;font-weight:bold;padding:8px 0;letter-spacing:1px;">e = 0.05 &nbsp;(5 %)</div>
       </div>
     </div>
-
     <div class="resultado-strip">
-      <div>
-        <div class="resultado-label-n">n =</div>
-        <div class="resultado-n" id="y-res">—</div>
-      </div>
+      <div><div class="resultado-label-n">n =</div><div class="resultado-n" id="y-res">—</div></div>
       <div class="resultado-desc" id="y-desc">Ingresa los valores para calcular la muestra.</div>
     </div>
-
     <div class="formula-section">
       <div class="f-label">Fórmula original — copia y pega en tu proyecto de tesis</div>
       <div class="formula-render">
         <i>n</i> &nbsp;=&nbsp;
-        <span class="frac">
-          <span class="num"><i>N</i></span>
-          <span class="den">1 &plus; <i>N</i>&thinsp;<i>e</i>²</span>
-        </span>
+        <span class="frac"><span class="num"><i>N</i></span><span class="den">1 &plus; <i>N</i>&thinsp;<i>e</i>²</span></span>
       </div>
-
       <div class="f-label">LaTeX</div>
       <div class="latex-box">n = \dfrac{N}{1 + N e^2}</div>
-      <button class="btn-copy" onclick="copiarTexto(this, 'n = \\dfrac{N}{1 + N e^2}')">Copiar LaTeX</button>
+      <button class="btn-copy" onclick="copiarTexto(this,'n = \\dfrac{N}{1 + N e^2}')">Copiar LaTeX</button>
       <span class="copy-ok">✔ Copiado</span>
-
-      <div class="donde">
-        <strong>Donde:</strong> N = tamaño de la población &nbsp;·&nbsp;
-        e = margen de error admisible (en decimal, ej. 0.05 para 5 %) &nbsp;·&nbsp;
-        Asume implícitamente p = 0.5 y Z = 1.96 (95 %)
-      </div>
-
+      <div class="donde"><strong>Donde:</strong> N = tamaño de la población · e = margen de error admisible (decimal) · Asume implícitamente p = 0.5 y Z = 1.96 (95 %)</div>
       <div style="margin-top:16px;">
-        <div class="f-label">Párrafo para tu proyecto de tesis — se actualiza con tus valores</div>
-        <div id="y-parrafo" style="font-size:0.83rem; line-height:1.8; margin-bottom:10px; padding:12px; background:#f8f8f8; border-left:3px solid #000;">
-          El tamaño de muestra se determinó aplicando la fórmula de Yamane (1967) para poblaciones finitas con máxima varianza, considerando una población de <strong id="y-ref-N">250</strong> unidades y un margen de error del 5 %, obteniéndose una muestra de <strong id="y-ref-n">—</strong> participantes.
-        </div>
+        <div class="f-label">Párrafo para tu proyecto de tesis</div>
+        <div class="parrafo-box">El tamaño de muestra se determinó aplicando la fórmula de Yamane (1967) para poblaciones finitas con máxima varianza, considerando una población de <strong id="y-ref-N">250</strong> unidades y un margen de error del 5 %, obteniéndose una muestra de <strong id="y-ref-n">—</strong> participantes.</div>
         <button class="btn-copy" onclick="copiarParrafoYamane()">Copiar párrafo de tesis</button>
         <span class="copy-ok" id="y-copy-ok">✔ Copiado</span>
       </div>
-
       <div style="margin-top:16px;">
-        <div class="f-label">Referencia APA 7 — para tu lista de referencias</div>
-        <div class="latex-box">Yamane, T. (1967). Statistics: An Introductory Analysis (2.ª ed.). Harper &amp; Row.</div>
-        <button class="btn-copy" onclick="copiarTexto(this, 'Yamane, T. (1967). Statistics: An Introductory Analysis (2.ª ed.). Harper & Row.')">Copiar referencia APA 7</button>
+        <div class="f-label">Referencia APA 7</div>
+        <div class="latex-box">Yamane, T. (1967). Statistics: An introductory analysis (2.ª ed.). Harper &amp; Row.</div>
+        <button class="btn-copy" onclick="copiarTexto(this,'Yamane, T. (1967). Statistics: An introductory analysis (2.ª ed.). Harper & Row.')">Copiar referencia APA 7</button>
         <span class="copy-ok">✔ Copiado</span>
-        &nbsp;&nbsp;
-        <button class="btn-copy" onclick="descargarRIS('yamane')">⬇ Descargar .ris (Zotero / Mendeley)</button>
+        &nbsp;&nbsp;<button class="btn-copy" onclick="descargarRIS('yamane')">⬇ Descargar .ris</button>
       </div>
-
     </div>
-
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════ -->
-<!-- MÉTODO 3 — KELLEY & DONNELLY -->
-<!-- ══════════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════ MÉTODO 3 — KELLEY & DONNELLY -->
 <div class="metodo-card">
   <div class="metodo-header">
-    <div>
-      <div class="metodo-num">Método 3</div>
-      <div class="metodo-titulo">Rango de Edades — Kelley &amp; Donnelly</div>
-    </div>
+    <div><div class="metodo-num">Método 3</div><div class="metodo-titulo">Rango de Edades — Kelley &amp; Donnelly</div></div>
     <div class="metodo-anio">2009</div>
   </div>
   <div class="metodo-body">
-
     <div class="meta-grid">
       <div class="meta-item"><strong>Autor(es)</strong>Kelley, W. M. y Donnelly, R. A.</div>
       <div class="meta-item"><strong>Año de publicación</strong>2009</div>
-      <div class="meta-item"><strong>Referencia</strong>Kelley, W. M. y Donnelly, R. A. (2009). <em>The Humongous Book of Statistics Problems</em>. Alpha (p. 236).</div>
+      <div class="meta-item"><strong>Referencia</strong>Kelley, W. M., &amp; Donnelly, R. A. (2009). <em>The humongous book of statistics problems</em>. Alpha (p. 236).</div>
       <div class="meta-item"><strong>Tipo de población</strong>Infinita o desconocida · Variable cuantitativa continua (edad u otro rango)</div>
     </div>
-
     <div class="descripcion">
-      Método para poblaciones <strong>infinitas o de tamaño desconocido</strong> cuando la variable es cuantitativa (ej. edad). Se estima la desviación estándar poblacional dividiendo el rango entre 6 (bajo el supuesto de distribución normal: μ ± 3σ abarca el 99.7 % de la población). Luego se aplica la fórmula clásica de muestra para medias.
+      Método para poblaciones <strong>infinitas o de tamaño desconocido</strong> cuando la variable es cuantitativa (ej. edad). Estima la desviación estándar poblacional dividiendo el rango entre 6 (distribución normal: μ ± 3σ abarca el 99.7 % de la población) y aplica la fórmula clásica de muestra para medias.
     </div>
-
     <div class="inputs-grid">
       <div class="input-grupo">
         <label>Edad mínima de la población</label>
@@ -533,104 +296,74 @@ footer {
         <input type="number" id="k-E" value="1" min="0.1" step="0.1" oninput="calcKelley()">
       </div>
     </div>
-
     <div class="resultado-strip">
-      <div>
-        <div class="resultado-label-n">n =</div>
-        <div class="resultado-n" id="k-res">—</div>
-      </div>
+      <div><div class="resultado-label-n">n =</div><div class="resultado-n" id="k-res">—</div></div>
       <div class="resultado-desc" id="k-desc">Ingresa los valores para calcular la muestra.</div>
     </div>
-
     <div class="formula-section">
       <div class="f-label">Fórmula original — copia y pega en tu proyecto de tesis</div>
-      <div class="formula-render" style="display:flex; flex-direction:column; align-items:center; gap:12px;">
+      <div class="formula-render" style="display:flex;flex-direction:column;align-items:center;gap:12px;">
         <div>
           <i>σ̂</i> &nbsp;=&nbsp;
-          <span class="frac">
-            <span class="num"><i>R</i></span>
-            <span class="den">6</span>
-          </span>
+          <span class="frac"><span class="num"><i>R</i></span><span class="den">6</span></span>
           &nbsp;=&nbsp;
-          <span class="frac">
-            <span class="num"><i>Edad<sub>máx</sub></i> &minus; <i>Edad<sub>mín</sub></i></span>
-            <span class="den">6</span>
-          </span>
+          <span class="frac"><span class="num"><i>Edad<sub>máx</sub></i> &minus; <i>Edad<sub>mín</sub></i></span><span class="den">6</span></span>
         </div>
         <div>
           <i>n</i> &nbsp;=&nbsp;
-          <span style="font-size:1.3rem; vertical-align:middle;">(</span>
-          <span class="frac">
-            <span class="num"><i>z</i> &middot; <i>σ̂</i></span>
-            <span class="den"><i>E</i></span>
-          </span>
-          <span style="font-size:1.3rem; vertical-align:middle;">)</span>²
+          <span style="font-size:1.3rem;vertical-align:middle;">(</span>
+          <span class="frac"><span class="num"><i>z</i> &middot; <i>σ̂</i></span><span class="den"><i>E</i></span></span>
+          <span style="font-size:1.3rem;vertical-align:middle;">)</span>²
         </div>
       </div>
-
       <div class="f-label">LaTeX</div>
       <div class="latex-box">\hat{\sigma} = \dfrac{R}{6} = \dfrac{\text{Edad}_{max} - \text{Edad}_{min}}{6}
 
 n = \left(\dfrac{z \cdot \hat{\sigma}}{E}\right)^2</div>
-      <button class="btn-copy" onclick="copiarTexto(this, '\\hat{\\sigma} = \\dfrac{R}{6} = \\dfrac{\\text{Edad}_{max} - \\text{Edad}_{min}}{6}\n\nn = \\left(\\dfrac{z \\cdot \\hat{\\sigma}}{E}\\right)^2')">Copiar LaTeX</button>
+      <button class="btn-copy" onclick="copiarTexto(this,'\\hat{\\sigma} = \\dfrac{R}{6} = \\dfrac{\\text{Edad}_{max} - \\text{Edad}_{min}}{6}\n\nn = \\left(\\dfrac{z \\cdot \\hat{\\sigma}}{E}\\right)^2')">Copiar LaTeX</button>
       <span class="copy-ok">✔ Copiado</span>
-
-      <div class="donde">
-        <strong>Donde:</strong> R = rango (edad máx. − edad mín.) &nbsp;·&nbsp;
-        σ̂ = estimación de la desviación estándar poblacional &nbsp;·&nbsp;
-        z = valor crítico según nivel de confianza &nbsp;·&nbsp;
-        E = margen de error en las mismas unidades que la variable (años)
-      </div>
-
+      <div class="donde"><strong>Donde:</strong> R = rango (edad máx. − edad mín.) · σ̂ = estimación de la desviación estándar poblacional · z = valor crítico · E = margen de error en las mismas unidades que la variable (años)</div>
       <div style="margin-top:16px;">
-        <div class="f-label">Párrafo para tu proyecto de tesis — se actualiza con tus valores</div>
-        <div id="k-parrafo" style="font-size:0.83rem; line-height:1.8; margin-bottom:10px; padding:12px; background:#f8f8f8; border-left:3px solid #000;">
-          El tamaño de muestra se determinó empleando el método de estimación por rango de edades propuesto por Kelley y Donnelly (2009), estimando la desviación estándar poblacional como σ̂ = R/6, donde R = <strong id="k-ref-R">47</strong> años (rango entre <strong id="k-ref-min">18</strong> y <strong id="k-ref-max">65</strong> años). Con un nivel de confianza del <strong id="k-ref-Z">95 %</strong> y un margen de error de <strong id="k-ref-E">1</strong> año, se obtuvo una muestra de <strong id="k-ref-n">—</strong> participantes.
-        </div>
+        <div class="f-label">Párrafo para tu proyecto de tesis</div>
+        <div class="parrafo-box">El tamaño de muestra se determinó empleando el método de estimación por rango de edades propuesto por Kelley y Donnelly (2009), estimando la desviación estándar poblacional como σ̂ = R/6, donde R = <strong id="k-ref-R">47</strong> años (rango entre <strong id="k-ref-min">18</strong> y <strong id="k-ref-max">65</strong> años). Con un nivel de confianza del <strong id="k-ref-Z">95 %</strong> y un margen de error de <strong id="k-ref-E">1</strong> año, se obtuvo una muestra de <strong id="k-ref-n">—</strong> participantes.</div>
         <button class="btn-copy" onclick="copiarParrafoKelley()">Copiar párrafo de tesis</button>
         <span class="copy-ok" id="k-copy-ok">✔ Copiado</span>
       </div>
-
       <div style="margin-top:16px;">
-        <div class="f-label">Referencia APA 7 — para tu lista de referencias</div>
+        <div class="f-label">Referencia APA 7</div>
         <div class="latex-box">Kelley, W. M., &amp; Donnelly, R. A. (2009). The humongous book of statistics problems. Alpha.</div>
-        <button class="btn-copy" onclick="copiarTexto(this, 'Kelley, W. M., & Donnelly, R. A. (2009). The humongous book of statistics problems. Alpha.')">Copiar referencia APA 7</button>
+        <button class="btn-copy" onclick="copiarTexto(this,'Kelley, W. M., & Donnelly, R. A. (2009). The humongous book of statistics problems. Alpha.')">Copiar referencia APA 7</button>
         <span class="copy-ok">✔ Copiado</span>
-        &nbsp;&nbsp;
-        <button class="btn-copy" onclick="descargarRIS('kelley')">⬇ Descargar .ris (Zotero / Mendeley)</button>
+        &nbsp;&nbsp;<button class="btn-copy" onclick="descargarRIS('kelley')">⬇ Descargar .ris</button>
       </div>
-
     </div>
-
   </div>
 </div>
-<!-- ══════════════════════════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════════ MÉTODO 4 — PLS-SEM -->
 <div class="metodo-card">
   <div class="metodo-header">
-    <div>
-      <div class="metodo-num">Método 4</div>
-      <div class="metodo-titulo">Path Esperado — PLS-SEM</div>
-    </div>
-    <div class="metodo-anio">2019</div>
+    <div><div class="metodo-num">Método 4</div><div class="metodo-titulo">Raíz Cuadrada Inversa — PLS-SEM</div></div>
+    <div class="metodo-anio">2021</div>
   </div>
   <div class="metodo-body">
 
     <div class="meta-grid">
-      <div class="meta-item"><strong>Autor(es)</strong>Hair, J. F.; Risher, J. J.; Sarstedt, M.; Ringle, C. M.</div>
-      <div class="meta-item"><strong>Año de publicación</strong>2019</div>
-      <div class="meta-item"><strong>Referencia</strong>Hair, J. F., Risher, J. J., Sarstedt, M., &amp; Ringle, C. M. (2019). When to use and how to report results of PLS-SEM. <em>European Business Review</em>, 31(1), 2–24.</div>
+      <div class="meta-item"><strong>Autor(es)</strong>Hair, J. F. Jr.; Hult, G. T. M.; Ringle, C. M.; Sarstedt, M.; Danks, N. P.; Ray, S.</div>
+      <div class="meta-item"><strong>Año de publicación</strong>2021</div>
+      <div class="meta-item"><strong>Referencia</strong>Hair, J. F. Jr., Hult, G. T. M., Ringle, C. M., Sarstedt, M., Danks, N. P., &amp; Ray, S. (2021). <em>Partial Least Squares Structural Equation Modeling (PLS-SEM) Using R.</em> Springer. https://doi.org/10.1007/978-3-030-80519-7</div>
       <div class="meta-item"><strong>Tipo de población</strong>Modelos de ecuaciones estructurales · PLS-SEM · SmartPLS · Variables latentes</div>
     </div>
 
     <div class="descripcion">
-      En modelos <strong>PLS-SEM</strong>, el tamaño de muestra no se determina por fórmulas clásicas sino por el <strong>coeficiente de ruta (path coefficient) mínimo esperado</strong>. Se consulta la tabla de potencia estadística adaptada por Hair et al. (basada en Cohen), que garantiza un poder del 80 % para detectar coeficientes significativos. A menor coeficiente de ruta esperado, mayor muestra requerida. En ciencias sociales se recomienda usar 0.20 como valor mínimo conservador.
+      En modelos <strong>PLS-SEM</strong>, el tamaño de muestra se determina mediante el <strong>método de la raíz cuadrada inversa</strong> (Kock &amp; Hadaya, 2018), adoptado por Hair et al. (2021). Considera la probabilidad de que la razón entre un coeficiente de ruta y su error estándar supere el valor crítico del estadístico de prueba para un nivel de significancia dado. El resultado depende únicamente del <strong>coeficiente de ruta mínimo esperado</strong> (p<sub>min</sub>) y garantiza una potencia estadística del 80 %. Se recomienda usar p<sub>min</sub> = 0.20 como valor conservador en ciencias sociales.
     </div>
 
     <div class="inputs-grid">
       <div class="input-grupo">
-        <label>Coeficiente de ruta mínimo esperado</label>
-        <div class="hint">En ciencias sociales generalmente 0.20. A menor coeficiente, mayor muestra.</div>
-        <input type="range" id="pls-path" min="0.10" max="0.50" step="0.05" value="0.20" oninput="calcPLS()">
+        <label>p<sub>min</sub> — Coeficiente de ruta mínimo esperado</label>
+        <div class="hint">En ciencias sociales generalmente 0.20. A menor coeficiente, mayor muestra requerida.</div>
+        <input type="range" id="pls-path" min="0.05" max="0.50" step="0.01" value="0.20" oninput="calcPLS()">
         <span class="range-val" id="pls-path-val">0.20</span>
       </div>
       <div class="input-grupo">
@@ -638,295 +371,261 @@ n = \left(\dfrac{z \cdot \hat{\sigma}}{E}\right)^2</div>
         <select id="pls-sig" onchange="calcPLS()">
           <option value="5" selected>5 % (α = 0.05) — estándar en ciencias sociales</option>
           <option value="1">1 % (α = 0.01) — más estricto</option>
+          <option value="10">10 % (α = 0.10) — exploratorio</option>
         </select>
       </div>
     </div>
 
     <div class="resultado-strip">
-      <div>
-        <div class="resultado-label-n">n mínima =</div>
-        <div class="resultado-n" id="pls-res">—</div>
-      </div>
+      <div><div class="resultado-label-n">n mínima =</div><div class="resultado-n" id="pls-res">—</div></div>
       <div class="resultado-desc" id="pls-desc">Ingresa los valores para calcular la muestra.</div>
     </div>
 
-    <!-- TABLA COMPLETA -->
+    <!-- FÓRMULA RAÍZ CUADRADA INVERSA -->
+    <div style="margin-bottom:20px;">
+      <div class="f-label">Fórmula original — copia y pega en tu proyecto de tesis (Kock &amp; Hadaya, 2018, en Hair et al., 2021, Cap. 1)</div>
+      <div class="formula-pls-block">
+        <div class="formula-pls-row">
+          <span class="sig-label">α = 1 %</span>
+          <span style="font-family:Georgia,serif;font-size:1.1rem;">n<sub>min</sub> &nbsp;&gt;&nbsp;</span>
+          <span style="font-size:1.25rem;font-family:Georgia,serif;">(</span>
+          <span class="frac"><span class="num">3.168</span><span class="den"><i>p</i><sub>min</sub></span></span>
+          <span style="font-size:1.25rem;font-family:Georgia,serif;">)<sup>2</sup></span>
+        </div>
+        <div class="formula-pls-row">
+          <span class="sig-label">α = 5 %</span>
+          <span style="font-family:Georgia,serif;font-size:1.1rem;">n<sub>min</sub> &nbsp;&gt;&nbsp;</span>
+          <span style="font-size:1.25rem;font-family:Georgia,serif;">(</span>
+          <span class="frac"><span class="num">2.486</span><span class="den"><i>p</i><sub>min</sub></span></span>
+          <span style="font-size:1.25rem;font-family:Georgia,serif;">)<sup>2</sup></span>
+        </div>
+        <div class="formula-pls-row">
+          <span class="sig-label">α = 10 %</span>
+          <span style="font-family:Georgia,serif;font-size:1.1rem;">n<sub>min</sub> &nbsp;&gt;&nbsp;</span>
+          <span style="font-size:1.25rem;font-family:Georgia,serif;">(</span>
+          <span class="frac"><span class="num">2.123</span><span class="den"><i>p</i><sub>min</sub></span></span>
+          <span style="font-size:1.25rem;font-family:Georgia,serif;">)<sup>2</sup></span>
+        </div>
+      </div>
+
+      <div class="f-label">LaTeX — para Word o documentos .tex</div>
+      <div class="latex-box">% Selecciona según tu nivel de significancia:
+
+% \alpha = 1\%:
+n_{min} > \left(\dfrac{3.168}{p_{min}}\right)^{2}
+
+% \alpha = 5\%:
+n_{min} > \left(\dfrac{2.486}{p_{min}}\right)^{2}
+
+% \alpha = 10\%:
+n_{min} > \left(\dfrac{2.123}{p_{min}}\right)^{2}</div>
+      <button class="btn-copy" onclick="copiarTexto(this,'% Selecciona según tu nivel de significancia:\n\n% alpha = 1%:\nn_{min} > \\left(\\dfrac{3.168}{p_{min}}\\right)^{2}\n\n% alpha = 5%:\nn_{min} > \\left(\\dfrac{2.486}{p_{min}}\\right)^{2}\n\n% alpha = 10%:\nn_{min} > \\left(\\dfrac{2.123}{p_{min}}\\right)^{2}')">Copiar LaTeX</button>
+      <span class="copy-ok">✔ Copiado</span>
+
+      <div class="donde">
+        <strong>Donde:</strong> n<sub>min</sub> = tamaño mínimo de muestra requerido &nbsp;·&nbsp;
+        p<sub>min</sub> = coeficiente de ruta de menor magnitud esperado en el modelo PLS &nbsp;·&nbsp;
+        Potencia estadística asumida = 80 % &nbsp;·&nbsp;
+        Las constantes 3.168, 2.486 y 2.123 corresponden a los niveles de significancia 1 %, 5 % y 10 % respectivamente.
+        Ejemplo para α = 5 % y p<sub>min</sub> = 0.20: n<sub>min</sub> = (2.486 / 0.20)² = 154.505 → se redondea a 155.
+      </div>
+    </div>
+
+    <!-- TABLA 1.3 de Hair et al. (2021) -->
     <div style="margin-bottom:18px;">
-      <div class="f-label" style="margin-bottom:8px;">Tabla de potencia estadística — Hair et al. (2019) · Potencia = 80 %</div>
+      <div class="f-label" style="margin-bottom:8px;">Tabla 1.3 — Tamaños mínimos de muestra para diferentes niveles de p<sub>min</sub> y una potencia del 80 % · Fuente: Hair et al. (2021, Cap. 1)</div>
       <table class="tabla-pls" id="tabla-pls">
         <thead>
           <tr>
-            <th>Coef. de ruta mínimo</th>
-            <th>n (significancia 5 %)</th>
-            <th>n (significancia 1 %)</th>
+            <th>p<sub>min</sub></th>
+            <th>Significancia 1 %</th>
+            <th>Significancia 5 %</th>
+            <th>Significancia 10 %</th>
           </tr>
         </thead>
         <tbody>
-          <tr data-path="0.10"><td>0.10</td><td>614</td><td>869</td></tr>
-          <tr data-path="0.15"><td>0.15</td><td>274</td><td>388</td></tr>
-          <tr data-path="0.20"><td>0.20</td><td>155</td><td>219</td></tr>
-          <tr data-path="0.25"><td>0.25</td><td>100</td><td>141</td></tr>
-          <tr data-path="0.30"><td>0.30</td><td>70</td><td>99</td></tr>
-          <tr data-path="0.35"><td>0.35</td><td>52</td><td>73</td></tr>
-          <tr data-path="0.40"><td>0.40</td><td>40</td><td>56</td></tr>
-          <tr data-path="0.45"><td>0.45</td><td>32</td><td>45</td></tr>
-          <tr data-path="0.50"><td>0.50</td><td>26</td><td>36</td></tr>
+          <tr data-lo="0.05" data-hi="0.10"><td>0.05 – 0.10</td><td>1004</td><td>619</td><td>451</td></tr>
+          <tr data-lo="0.11" data-hi="0.20"><td>0.11 – 0.20</td><td>251</td><td>155</td><td>113</td></tr>
+          <tr data-lo="0.21" data-hi="0.30"><td>0.21 – 0.30</td><td>112</td><td>69</td><td>51</td></tr>
+          <tr data-lo="0.31" data-hi="0.40"><td>0.31 – 0.40</td><td>63</td><td>39</td><td>29</td></tr>
+          <tr data-lo="0.41" data-hi="0.50"><td>0.41 – 0.50</td><td>41</td><td>25</td><td>19</td></tr>
         </tbody>
+        <tfoot>
+          <tr><td colspan="4">Fuente: Hair et al. (2021), Cap. 1 — basada en el método de la raíz cuadrada inversa (Kock &amp; Hadaya, 2018). Para determinar el n mínimo se usa el límite superior del rango de p<sub>min</sub> porque el método es conservador.</td></tr>
+        </tfoot>
       </table>
     </div>
 
     <div class="formula-section">
-      <div class="f-label">Texto para tu proyecto de tesis — copia y pega (ajusta los valores resaltados)</div>
-      <div style="font-size:0.83rem; line-height:1.8; margin-bottom:14px; padding:12px; background:#f0f0f0; border-left:3px solid #000;">
-        El tamaño de muestra se determinó siguiendo la tabla de potencia estadística propuesta por Hair et al. (2019) para modelos PLS-SEM, considerando un coeficiente de ruta mínimo esperado de <strong id="pls-ref-path">0.20</strong>, un nivel de significancia de <strong id="pls-ref-sig">5 %</strong> y una potencia estadística del 80 %, lo que establece una muestra mínima recomendada de <strong id="pls-ref-n">155</strong> participantes.
+      <div class="f-label">Párrafo para tu proyecto de tesis — se actualiza con tus valores</div>
+      <div id="pls-parrafo-div" class="parrafo-box">
+        El tamaño de muestra se determinó mediante el método de la raíz cuadrada inversa propuesto por Kock y Hadaya (2018), adoptado por Hair et al. (2021) para modelos PLS-SEM, el cual establece que n<sub>min</sub> &gt; (2.486 / p<sub>min</sub>)² para un nivel de significancia del 5 %. Considerando un coeficiente de ruta mínimo esperado de <strong id="pls-ref-path">0.20</strong>, un nivel de significancia de <strong id="pls-ref-sig">5 %</strong> y una potencia estadística del 80 %, la muestra mínima recomendada es de <strong id="pls-ref-n">155</strong> participantes.
       </div>
-      <button class="btn-copy" id="btn-copy-pls" onclick="copiarTextoPLS()">Copiar párrafo de tesis</button>
+      <button class="btn-copy" onclick="copiarTextoPLS()">Copiar párrafo de tesis</button>
       <span class="copy-ok" id="pls-copy-ok">✔ Copiado</span>
 
-      <div style="margin-top:14px;">
-        <div class="f-label">Referencia APA 7 — para tu lista de referencias</div>
-        <div class="latex-box">Hair, J. F., Risher, J. J., Sarstedt, M., & Ringle, C. M. (2019). When to use and how to report results of PLS-SEM. European Business Review, 31(1), 2–24. https://doi.org/10.1108/EBR-11-2018-0203</div>
-        <button class="btn-copy" onclick="copiarTexto(this, 'Hair, J. F., Risher, J. J., Sarstedt, M., & Ringle, C. M. (2019). When to use and how to report results of PLS-SEM. European Business Review, 31(1), 2–24. https://doi.org/10.1108/EBR-11-2018-0203')">Copiar referencia APA 7</button>
+      <div style="margin-top:16px;">
+        <div class="f-label">Referencia APA 7</div>
+        <div class="latex-box">Hair, J. F. Jr., Hult, G. T. M., Ringle, C. M., Sarstedt, M., Danks, N. P., &amp; Ray, S. (2021). Partial Least Squares Structural Equation Modeling (PLS-SEM) using R. Springer. https://doi.org/10.1007/978-3-030-80519-7</div>
+        <button class="btn-copy" onclick="copiarTexto(this,'Hair, J. F. Jr., Hult, G. T. M., Ringle, C. M., Sarstedt, M., Danks, N. P., & Ray, S. (2021). Partial Least Squares Structural Equation Modeling (PLS-SEM) using R. Springer. https://doi.org/10.1007/978-3-030-80519-7')">Copiar referencia APA 7</button>
         <span class="copy-ok">✔ Copiado</span>
-        &nbsp;&nbsp;
-        <button class="btn-copy" onclick="descargarRIS('pls')">⬇ Descargar .ris (Zotero / Mendeley)</button>
+        &nbsp;&nbsp;<button class="btn-copy" onclick="descargarRIS('pls')">⬇ Descargar .ris (Zotero / Mendeley)</button>
       </div>
 
-      <div class="donde">
-        <strong>Nota:</strong> Este método no usa una fórmula matemática directa, sino una tabla de potencia estadística derivada del análisis de Cohen (1992). El resultado varía con el coeficiente de ruta mínimo esperado y el nivel de significancia elegido.
+      <div class="donde" style="margin-top:14px;">
+        <strong>Nota:</strong> La fórmula se aplica prospectivamente usando el coeficiente de ruta de menor magnitud que se espera detectar como significativo. No usar el valor más pequeño posible sin justificación teórica: p<sub>min</sub> = 0.01 implicaría n &gt; 61,802. Se recomienda basarse en investigaciones previas o en los resultados de un estudio piloto (Hair et al., 2021, Cap. 1).
       </div>
     </div>
 
   </div>
 </div>
 
-<footer>EPG-UNASAM · Calculadora de Tamaño de Muestra · Huaraz, Áncash, Perú · AntoMatic Tools</footer>
+<footer>EPG-UNASAM · Calculadora de Tamaño de Muestra · Huaraz, Áncash, Perú · idea de Antonio Lirio v2</footer>
 
 <script>
-// ════════════════════════════════════════════════════════
-// MÉTODO 1 — COCHRAN CORREGIDA
-// ════════════════════════════════════════════════════════
+// ════ MÉTODO 1 — COCHRAN
 function calcCochran() {
   const N = parseFloat(document.getElementById('c-N').value);
   const z = parseFloat(document.getElementById('c-Z').value);
   const p = parseFloat(document.getElementById('c-p').value);
   const d = parseFloat(document.getElementById('c-d').value);
-
   document.getElementById('c-p-val').textContent = p.toFixed(1);
   document.getElementById('c-d-val').textContent = d.toFixed(2);
-
   if (!N || N < 2) return;
-  const q   = 1 - p;
-  const num = N * z * z * p * q;
-  const den = (N - 1) * d * d + z * z * p * q;
-  const n   = Math.ceil(num / den);
-
-  document.getElementById('c-res').textContent  = n;
-  document.getElementById('c-desc').textContent =
-    `N=${N} · Z=${z} (${zConf(z)}) · p=${p.toFixed(1)} · q=${q.toFixed(1)} · d=${(d*100).toFixed(0)}% de error.`;
-
-  // Actualizar párrafo
+  const q = 1 - p;
+  const n = Math.ceil((N * z * z * p * q) / ((N - 1) * d * d + z * z * p * q));
+  document.getElementById('c-res').textContent = n;
+  document.getElementById('c-desc').textContent = `N=${N} · Z=${z} (${zConf(z)}) · p=${p.toFixed(1)} · q=${q.toFixed(1)} · d=${(d*100).toFixed(0)}%`;
   document.getElementById('c-ref-N').textContent = N;
   document.getElementById('c-ref-Z').textContent = zConf(z).replace('%','') + ' %';
+  document.getElementById('c-ref-Zv').textContent = z;
   document.getElementById('c-ref-p').textContent = p.toFixed(2);
   document.getElementById('c-ref-q').textContent = q.toFixed(2);
   document.getElementById('c-ref-d').textContent = (d*100).toFixed(0) + ' %';
   document.getElementById('c-ref-n').textContent = n;
 }
 
-// ════════════════════════════════════════════════════════
-// MÉTODO 2 — YAMANE (e fijo = 0.05)
-// ════════════════════════════════════════════════════════
+// ════ MÉTODO 2 — YAMANE
 function calcYamane() {
   const N = parseFloat(document.getElementById('y-N').value);
-  const e = 0.05; // fijo
-
   if (!N || N < 2) return;
-  const n = Math.ceil(N / (1 + N * e * e));
-
-  document.getElementById('y-res').textContent  = n;
-  document.getElementById('y-desc').textContent =
-    `N=${N} · e=5% (fijo) · Asume p=0.5 (máxima varianza) → n=${n}`;
-
-  // Actualizar párrafo
+  const n = Math.ceil(N / (1 + N * 0.0025));
+  document.getElementById('y-res').textContent = n;
+  document.getElementById('y-desc').textContent = `N=${N} · e=5% (fijo) · Asume p=0.5 → n=${n}`;
   document.getElementById('y-ref-N').textContent = N;
   document.getElementById('y-ref-n').textContent = n;
 }
 
-// ════════════════════════════════════════════════════════
-// MÉTODO 4 — KELLEY & DONNELLY
-// ════════════════════════════════════════════════════════
+// ════ MÉTODO 3 — KELLEY & DONNELLY
 function calcKelley() {
   const emin = parseFloat(document.getElementById('k-min').value);
   const emax = parseFloat(document.getElementById('k-max').value);
   const z    = parseFloat(document.getElementById('k-Z').value);
   const E    = parseFloat(document.getElementById('k-E').value);
-
-  if (isNaN(emin) || isNaN(emax) || emax <= emin || isNaN(E) || E <= 0) {
-    document.getElementById('k-res').textContent  = '—';
-    document.getElementById('k-desc').textContent = 'Verifica que edad máx > edad mín y E > 0.';
+  if (isNaN(emin)||isNaN(emax)||emax<=emin||isNaN(E)||E<=0) {
+    document.getElementById('k-res').textContent='—';
+    document.getElementById('k-desc').textContent='Verifica que edad máx > edad mín y E > 0.';
     return;
   }
-
-  const R     = emax - emin;
-  const sigma = R / 6;
-  const n     = Math.ceil(Math.pow((z * sigma) / E, 2));
-
-  document.getElementById('k-res').textContent  = n;
-  document.getElementById('k-desc').textContent =
-    `R=${R} años · σ̂=R/6=${sigma.toFixed(3)} · Z=${z} (${zConf(z)}) · E=${E} año(s) → n=(${z}×${sigma.toFixed(3)}/${E})²=${n}`;
-
-  // Actualizar párrafo
-  document.getElementById('k-ref-R').textContent   = R;
-  document.getElementById('k-ref-min').textContent = emin;
-  document.getElementById('k-ref-max').textContent = emax;
-  document.getElementById('k-ref-Z').textContent   = zConf(z).replace('%','') + ' %';
-  document.getElementById('k-ref-E').textContent   = E;
-  document.getElementById('k-ref-n').textContent   = n;
+  const R=emax-emin, sigma=R/6;
+  const n=Math.ceil(Math.pow((z*sigma)/E,2));
+  document.getElementById('k-res').textContent=n;
+  document.getElementById('k-desc').textContent=`R=${R} · σ̂=${sigma.toFixed(3)} · Z=${z} (${zConf(z)}) · E=${E} → n=${n}`;
+  document.getElementById('k-ref-R').textContent=R;
+  document.getElementById('k-ref-min').textContent=emin;
+  document.getElementById('k-ref-max').textContent=emax;
+  document.getElementById('k-ref-Z').textContent=zConf(z).replace('%','')+' %';
+  document.getElementById('k-ref-E').textContent=E;
+  document.getElementById('k-ref-n').textContent=n;
 }
 
-// ════════════════════════════════════════════════════════
-// MÉTODO 5 — PLS-SEM PATH
-// ════════════════════════════════════════════════════════
-const PLS = {
-  '0.10': { '5': 614, '1': 869 },
-  '0.15': { '5': 274, '1': 388 },
-  '0.20': { '5': 155, '1': 219 },
-  '0.25': { '5': 100, '1': 141 },
-  '0.30': { '5': 70,  '1': 99  },
-  '0.35': { '5': 52,  '1': 73  },
-  '0.40': { '5': 40,  '1': 56  },
-  '0.45': { '5': 32,  '1': 45  },
-  '0.50': { '5': 26,  '1': 36  },
-};
+// ════ MÉTODO 4 — PLS-SEM (raíz cuadrada inversa)
+const PLS_K = {'1':3.168,'5':2.486,'10':2.123};
 
 function calcPLS() {
-  const rawPath = parseFloat(document.getElementById('pls-path').value);
-  const sig     = document.getElementById('pls-sig').value;
-  const key     = rawPath.toFixed(2);
-
-  document.getElementById('pls-path-val').textContent = key;
-
-  const entry = PLS[key];
-  if (!entry) return;
-  const n = entry[sig];
-
-  document.getElementById('pls-res').textContent  = n;
+  const pmin = parseFloat(document.getElementById('pls-path').value);
+  const sig  = document.getElementById('pls-sig').value;
+  const k    = PLS_K[sig];
+  const pStr = pmin.toFixed(2);
+  document.getElementById('pls-path-val').textContent = pStr;
+  const n = Math.ceil(Math.pow(k/pmin,2));
+  document.getElementById('pls-res').textContent = n;
   document.getElementById('pls-desc').textContent =
-    `Coef. de ruta mín. = ${key} · Significancia = ${sig}% · Potencia = 80% → n mínima recomendada = ${n} participantes.`;
+    `p_min = ${pStr} · α = ${sig}% · n_min = (${k} / ${pStr})² = ${n} · Potencia = 80%.`;
 
-  // Actualizar párrafo de tesis
-  document.getElementById('pls-ref-path').textContent = key;
-  document.getElementById('pls-ref-sig').textContent  = sig + ' %';
-  document.getElementById('pls-ref-n').textContent    = n;
+  // Párrafo dinámico
+  document.getElementById('pls-parrafo-div').innerHTML =
+    `El tamaño de muestra se determinó mediante el método de la raíz cuadrada inversa propuesto por Kock y Hadaya (2018), adoptado por Hair et al. (2021) para modelos PLS-SEM, el cual establece que n<sub>min</sub> &gt; (${k.toFixed(3)}&thinsp;/&thinsp;p<sub>min</sub>)² para un nivel de significancia del ${sig}&thinsp;%. Considerando un coeficiente de ruta mínimo esperado de <strong id="pls-ref-path">${pStr}</strong>, un nivel de significancia de <strong id="pls-ref-sig">${sig} %</strong> y una potencia estadística del 80 %, la muestra mínima recomendada es de <strong id="pls-ref-n">${n}</strong> participantes.`;
 
-  // Resaltar fila en tabla
-  document.querySelectorAll('#tabla-pls tbody tr').forEach(tr => {
-    const v = parseFloat(tr.dataset.path).toFixed(2);
-    tr.classList.toggle('hl', v === key);
+  // Resaltar fila de la Tabla 1.3
+  document.querySelectorAll('#tabla-pls tbody tr').forEach(tr=>{
+    const lo=parseFloat(tr.dataset.lo), hi=parseFloat(tr.dataset.hi);
+    tr.classList.toggle('hl', pmin>=lo && pmin<=hi);
   });
 }
 
-// ════════════════════════════════════════════════════════
-// HELPERS
-// ════════════════════════════════════════════════════════
-function zConf(z) {
-  return { '1.645':'90%', '1.96':'95%', '2.326':'98%', '2.576':'99%' }[String(z)] || '';
-}
+// ════ HELPERS
+function zConf(z){return{'1.645':'90%','1.96':'95%','2.326':'98%','2.576':'99%'}[String(z)]||'';}
 
-function copiarTexto(btn, texto) {
-  navigator.clipboard.writeText(texto).then(() => {
-    const ok = btn.nextElementSibling;
-    ok.style.display = 'inline';
-    setTimeout(() => ok.style.display = 'none', 2000);
+function copiarTexto(btn,texto){
+  navigator.clipboard.writeText(texto).then(()=>{
+    const ok=btn.nextElementSibling; ok.style.display='inline';
+    setTimeout(()=>ok.style.display='none',2000);
   });
 }
-
-function copiarParrafoCochran() {
-  const N = document.getElementById('c-ref-N').textContent;
-  const Z = document.getElementById('c-ref-Z').textContent;
-  const p = document.getElementById('c-ref-p').textContent;
-  const q = document.getElementById('c-ref-q').textContent;
-  const d = document.getElementById('c-ref-d').textContent;
-  const n = document.getElementById('c-ref-n').textContent;
-  const txt = `El tamaño de muestra se determinó aplicando la fórmula de Cochran corregida para poblaciones finitas (Cochran, 1977), considerando una población de ${N} unidades, un nivel de confianza del ${Z} (Z = ${document.getElementById('c-Z').value}), una proporción esperada de ${p}, una proporción complementaria de ${q} y un error de estimación del ${d}, obteniéndose una muestra de ${n} participantes.`;
-  navigator.clipboard.writeText(txt).then(() => {
-    const ok = document.getElementById('c-copy-ok');
-    ok.style.display = 'inline';
-    setTimeout(() => ok.style.display = 'none', 2500);
-  });
+function copiarParrafoCochran(){
+  const N=document.getElementById('c-ref-N').textContent;
+  const Z=document.getElementById('c-ref-Z').textContent;
+  const Zv=document.getElementById('c-ref-Zv').textContent;
+  const p=document.getElementById('c-ref-p').textContent;
+  const q=document.getElementById('c-ref-q').textContent;
+  const d=document.getElementById('c-ref-d').textContent;
+  const n=document.getElementById('c-ref-n').textContent;
+  const txt=`El tamaño de muestra se determinó aplicando la fórmula de Cochran corregida para poblaciones finitas (Cochran, 1977), considerando una población de ${N} unidades, un nivel de confianza del ${Z} (Z = ${Zv}), una proporción esperada de ${p}, una proporción complementaria de ${q} y un error de estimación del ${d}, obteniéndose una muestra de ${n} participantes.`;
+  navigator.clipboard.writeText(txt).then(()=>{const ok=document.getElementById('c-copy-ok');ok.style.display='inline';setTimeout(()=>ok.style.display='none',2500);});
+}
+function copiarParrafoYamane(){
+  const N=document.getElementById('y-ref-N').textContent;
+  const n=document.getElementById('y-ref-n').textContent;
+  const txt=`El tamaño de muestra se determinó aplicando la fórmula de Yamane (1967) para poblaciones finitas con máxima varianza, considerando una población de ${N} unidades y un margen de error del 5 %, obteniéndose una muestra de ${n} participantes.`;
+  navigator.clipboard.writeText(txt).then(()=>{const ok=document.getElementById('y-copy-ok');ok.style.display='inline';setTimeout(()=>ok.style.display='none',2500);});
+}
+function copiarParrafoKelley(){
+  const R=document.getElementById('k-ref-R').textContent;
+  const mn=document.getElementById('k-ref-min').textContent;
+  const mx=document.getElementById('k-ref-max').textContent;
+  const Z=document.getElementById('k-ref-Z').textContent;
+  const E=document.getElementById('k-ref-E').textContent;
+  const n=document.getElementById('k-ref-n').textContent;
+  const txt=`El tamaño de muestra se determinó empleando el método de estimación por rango de edades propuesto por Kelley y Donnelly (2009), estimando la desviación estándar poblacional como σ̂ = R/6, donde R = ${R} años (rango entre ${mn} y ${mx} años). Con un nivel de confianza del ${Z} y un margen de error de ${E} año(s), se obtuvo una muestra de ${n} participantes.`;
+  navigator.clipboard.writeText(txt).then(()=>{const ok=document.getElementById('k-copy-ok');ok.style.display='inline';setTimeout(()=>ok.style.display='none',2500);});
+}
+function copiarTextoPLS(){
+  const pmin=parseFloat(document.getElementById('pls-path').value);
+  const sig=document.getElementById('pls-sig').value;
+  const k=PLS_K[sig];
+  const n=Math.ceil(Math.pow(k/pmin,2));
+  const txt=`El tamaño de muestra se determinó mediante el método de la raíz cuadrada inversa propuesto por Kock y Hadaya (2018), adoptado por Hair et al. (2021) para modelos PLS-SEM, el cual establece que n_min > (${k.toFixed(3)} / p_min)² para un nivel de significancia del ${sig} %. Considerando un coeficiente de ruta mínimo esperado de ${pmin.toFixed(2)}, un nivel de significancia de ${sig} % y una potencia estadística del 80 %, la muestra mínima recomendada es de ${n} participantes.`;
+  navigator.clipboard.writeText(txt).then(()=>{const ok=document.getElementById('pls-copy-ok');ok.style.display='inline';setTimeout(()=>ok.style.display='none',2500);});
 }
 
-function copiarParrafoYamane() {
-  const N = document.getElementById('y-ref-N').textContent;
-  const n = document.getElementById('y-ref-n').textContent;
-  const txt = `El tamaño de muestra se determinó aplicando la fórmula de Yamane (1967) para poblaciones finitas con máxima varianza, considerando una población de ${N} unidades y un margen de error del 5 %, obteniéndose una muestra de ${n} participantes.`;
-  navigator.clipboard.writeText(txt).then(() => {
-    const ok = document.getElementById('y-copy-ok');
-    ok.style.display = 'inline';
-    setTimeout(() => ok.style.display = 'none', 2500);
-  });
-}
-
-function copiarParrafoKelley() {
-  const R    = document.getElementById('k-ref-R').textContent;
-  const min  = document.getElementById('k-ref-min').textContent;
-  const max  = document.getElementById('k-ref-max').textContent;
-  const Z    = document.getElementById('k-ref-Z').textContent;
-  const E    = document.getElementById('k-ref-E').textContent;
-  const n    = document.getElementById('k-ref-n').textContent;
-  const txt  = `El tamaño de muestra se determinó empleando el método de estimación por rango de edades propuesto por Kelley y Donnelly (2009), estimando la desviación estándar poblacional como σ̂ = R/6, donde R = ${R} años (rango entre ${min} y ${max} años). Con un nivel de confianza del ${Z} y un margen de error de ${E} año(s), se obtuvo una muestra de ${n} participantes.`;
-  navigator.clipboard.writeText(txt).then(() => {
-    const ok = document.getElementById('k-copy-ok');
-    ok.style.display = 'inline';
-    setTimeout(() => ok.style.display = 'none', 2500);
-  });
-}
-
-function copiarTextoPLS() {
-  const path = document.getElementById('pls-ref-path').textContent;
-  const sig  = document.getElementById('pls-ref-sig').textContent;
-  const n    = document.getElementById('pls-ref-n').textContent;
-  const txt  = `El tamaño de muestra se determinó siguiendo la tabla de potencia estadística propuesta por Hair et al. (2019) para modelos PLS-SEM, considerando un coeficiente de ruta mínimo esperado de ${path}, un nivel de significancia de ${sig} y una potencia estadística del 80 %, lo que establece una muestra mínima recomendada de ${n} participantes.`;
-  navigator.clipboard.writeText(txt).then(() => {
-    const ok = document.getElementById('pls-copy-ok');
-    ok.style.display = 'inline';
-    setTimeout(() => ok.style.display = 'none', 2500);
-  });
-}
-
-// ════════════════════════════════════════════════════════
-// DESCARGA .RIS
-// ════════════════════════════════════════════════════════
-const RIS_DATA = {
-  cochran: `TY  - BOOK\r\nAU  - Cochran, William G.\r\nTI  - Sampling Techniques\r\nET  - 3\r\nPB  - John Wiley & Sons\r\nPY  - 1977\r\nCY  - New York\r\nER  - `,
-  yamane:  `TY  - BOOK\r\nAU  - Yamane, Taro\r\nTI  - Statistics: An Introductory Analysis\r\nET  - 2\r\nPB  - Harper & Row\r\nPY  - 1967\r\nCY  - New York\r\nER  - `,
-  kelley:  `TY  - BOOK\r\nAU  - Kelley, W. M.\r\nAU  - Donnelly, R. A.\r\nTI  - The Humongous Book of Statistics Problems\r\nPB  - Alpha\r\nPY  - 2009\r\nCY  - New York\r\nSP  - 236\r\nER  - `,
-  pls:     `TY  - JOUR\r\nAU  - Hair, J. F.\r\nAU  - Risher, J. J.\r\nAU  - Sarstedt, M.\r\nAU  - Ringle, C. M.\r\nTI  - When to use and how to report results of PLS-SEM\r\nJO  - European Business Review\r\nVL  - 31\r\nIS  - 1\r\nSP  - 2\r\nEP  - 24\r\nPY  - 2019\r\nDO  - 10.1108/EBR-11-2018-0203\r\nER  - `
+// ════ DESCARGA .RIS
+const RIS_DATA={
+  cochran:`TY  - BOOK\r\nAU  - Cochran, William G.\r\nTI  - Sampling Techniques\r\nET  - 3\r\nPB  - John Wiley & Sons\r\nPY  - 1977\r\nCY  - New York\r\nER  - `,
+  yamane: `TY  - BOOK\r\nAU  - Yamane, Taro\r\nTI  - Statistics: An Introductory Analysis\r\nET  - 2\r\nPB  - Harper & Row\r\nPY  - 1967\r\nCY  - New York\r\nER  - `,
+  kelley: `TY  - BOOK\r\nAU  - Kelley, W. M.\r\nAU  - Donnelly, R. A.\r\nTI  - The Humongous Book of Statistics Problems\r\nPB  - Alpha\r\nPY  - 2009\r\nCY  - New York\r\nSP  - 236\r\nER  - `,
+  pls:    `TY  - BOOK\r\nAU  - Hair, Joseph F.\r\nAU  - Hult, G. Tomas M.\r\nAU  - Ringle, Christian M.\r\nAU  - Sarstedt, Marko\r\nAU  - Danks, Nicholas P.\r\nAU  - Ray, Soumya\r\nTI  - Partial Least Squares Structural Equation Modeling (PLS-SEM) Using R\r\nPB  - Springer\r\nPY  - 2021\r\nDO  - 10.1007/978-3-030-80519-7\r\nSN  - 978-3-030-80518-0\r\nER  - `
 };
-
-function descargarRIS(clave) {
-  const contenido = RIS_DATA[clave];
-  if (!contenido) return;
-  const blob = new Blob([contenido], { type: 'application/x-research-info-systems' });
-  const a    = document.createElement('a');
-  a.href     = URL.createObjectURL(blob);
-  a.download = `referencia_${clave}.ris`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(a.href);
+function descargarRIS(clave){
+  const blob=new Blob([RIS_DATA[clave]],{type:'application/x-research-info-systems'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob); a.download=`referencia_${clave}.ris`;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(a.href);
 }
 
-// ════════════════════════════════════════════════════════
-// INIT
-// ════════════════════════════════════════════════════════
-window.onload = () => {
-  calcCochran();
-  calcYamane();
-  calcKelley();
-  calcPLS();
-};
+// ════ INIT
+window.onload=()=>{calcCochran();calcYamane();calcKelley();calcPLS();};
 </script>
 </body>
 </html>

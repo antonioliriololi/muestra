@@ -113,7 +113,7 @@ footer { margin-top: 40px; padding-top: 10px; border-top: 1px solid #ccc; font-s
 
 <header>
   <h1>Calculadora de Tamaño de Muestra</h1>
-  <p>Idea de Antonio Lirio · AntoMatic Tools · 4 métodos</p>
+  <p>Idea de Antonio Lirio · AntoMatic Tools · 5 métodos</p>
 </header>
 
 <!-- ══════════════════════════════════════════ MÉTODO 1 — COCHRAN -->
@@ -134,7 +134,7 @@ footer { margin-top: 40px; padding-top: 10px; border-top: 1px solid #ccc; font-s
     </div>
     <div class="inputs-grid">
       <div class="input-grupo">
-        <label>n — Tamaño de la población</label>
+        <label>Tamaño de la población — N</label>
         <div class="hint">Número total de unidades en la población</div>
         <input type="number" id="c-N" value="250" min="2" oninput="calcCochran()">
       </div>
@@ -213,7 +213,7 @@ footer { margin-top: 40px; padding-top: 10px; border-top: 1px solid #ccc; font-s
     </div>
     <div class="inputs-grid">
       <div class="input-grupo">
-        <label>n — Tamaño de la población</label>
+        <label>Tamaño de la población — N</label>
         <input type="number" id="y-N" value="250" min="2" oninput="calcYamane()">
       </div>
       <div class="input-grupo">
@@ -272,11 +272,11 @@ footer { margin-top: 40px; padding-top: 10px; border-top: 1px solid #ccc; font-s
     </div>
     <div class="inputs-grid">
       <div class="input-grupo">
-        <label>n — Edad mínima de la población</label>
+        <label>Edad mínima de la población</label>
         <input type="number" id="k-min" value="18" min="0" oninput="calcKelley()">
       </div>
       <div class="input-grupo">
-        <label>n — Edad máxima de la población</label>
+        <label>Edad máxima de la población</label>
         <input type="number" id="k-max" value="65" min="0" oninput="calcKelley()">
       </div>
       <div class="input-grupo">
@@ -464,6 +464,85 @@ n_{min} > \left(\dfrac{2.123}{p_{min}}\right)^{2}</div>
   </div>
 </div>
 
+<!-- ══════════════════════════════════════════ MÉTODO 5 — POBLACIÓN INFINITA -->
+<div class="metodo-card">
+  <div class="metodo-header">
+    <div><div class="metodo-num">Método 5</div><div class="metodo-titulo">Población Infinita o Desconocida — Proporción</div></div>
+    <div class="metodo-anio">2009</div>
+  </div>
+  <div class="metodo-body">
+    <div class="meta-grid">
+      <div class="meta-item"><strong>Autor(es)</strong>De la Puente Viedma, Carlos</div>
+      <div class="meta-item"><strong>Año de publicación</strong>2009</div>
+      <div class="meta-item"><strong>Referencia</strong>De la Puente Viedma, C. (2009). <em>Estadística descriptiva e inferencial y una introducción al método científico.</em> Editorial Complutense.</div>
+      <div class="meta-item"><strong>Tipo de población</strong>Infinita o desconocida · Variable categórica (proporción)</div>
+    </div>
+    <div class="descripcion">
+      Fórmula clásica para <strong>poblaciones infinitas o de tamaño desconocido</strong> cuando la variable de interés es categórica. Al no conocerse N, no se aplica factor de corrección: el tamaño de muestra depende únicamente de Z, p y e. Con p = 0.5 y e = 5 % al 95 % de confianza se obtiene el valor estándar de referencia n ≈ 384.
+    </div>
+    <div class="inputs-grid">
+      <div class="input-grupo">
+        <label>Z — Nivel de confianza</label>
+        <select id="inf-Z" onchange="calcInfinita()">
+          <option value="1.645">90 % → Z = 1.645</option>
+          <option value="1.96" selected>95 % → Z = 1.96</option>
+          <option value="2.326">98 % → Z = 2.326</option>
+          <option value="2.576">99 % → Z = 2.576</option>
+        </select>
+      </div>
+      <div class="input-grupo">
+        <label>p — Proporción esperada</label>
+        <div class="hint">Usa 0.5 si no tienes datos previos (máxima varianza)</div>
+        <input type="range" id="inf-p" min="0.1" max="0.9" step="0.1" value="0.5" oninput="calcInfinita()">
+        <span class="range-val" id="inf-p-val">0.50</span>
+      </div>
+      <div class="input-grupo">
+        <label>e — Margen de error</label>
+        <div class="hint">Generalmente 5 % en ciencias sociales</div>
+        <input type="range" id="inf-e" min="0.01" max="0.10" step="0.01" value="0.05" oninput="calcInfinita()">
+        <span class="range-val" id="inf-e-val">0.05</span>
+      </div>
+    </div>
+    <div class="resultado-strip">
+      <div><div class="resultado-label-n">n =</div><div class="resultado-n" id="inf-res">—</div></div>
+      <div class="resultado-desc" id="inf-desc">Ingresa los valores para calcular la muestra.</div>
+    </div>
+    <div class="formula-section">
+      <div class="f-label">Fórmula original — copia y pega en tu proyecto de tesis</div>
+      <div class="formula-render">
+        <i>n</i> &nbsp;=&nbsp;
+        <span class="frac">
+          <span class="num"><i>Z</i>²&thinsp;&middot;&thinsp;<i>p</i>&thinsp;&middot;&thinsp;<i>q</i></span>
+          <span class="den"><i>e</i>²</span>
+        </span>
+      </div>
+      <div class="f-label">LaTeX</div>
+      <div class="latex-box">n = \dfrac{Z^2 \cdot p \cdot q}{e^2}</div>
+      <button class="btn-copy" onclick="copiarTexto(this,'n = \\dfrac{Z^2 \\cdot p \\cdot q}{e^2}')">Copiar LaTeX</button>
+      <span class="copy-ok">✔ Copiado</span>
+      <div class="donde"><strong>Donde:</strong> Z = valor crítico según nivel de confianza · p = proporción esperada · q = 1 − p (proporción complementaria) · e = margen de error admisible (decimal) · No requiere conocer N</div>
+      <div style="margin-top:16px;">
+        <div class="f-label">Párrafo para tu proyecto de tesis — se actualiza con tus valores</div>
+        <div id="inf-parrafo-div" class="parrafo-box">
+          El tamaño de muestra se determinó aplicando la fórmula para poblaciones infinitas o de tamaño desconocido (De la Puente Viedma, 2009), dado que no se cuenta con un registro preciso del total de la población. Se consideró un nivel de confianza del <strong id="inf-ref-Z">95 %</strong> (Z = <span id="inf-ref-Zv">1.96</span>), una proporción esperada de <strong id="inf-ref-p">0.50</strong>, una proporción complementaria de <strong id="inf-ref-q">0.50</strong> y un margen de error del <strong id="inf-ref-e">5 %</strong>, obteniéndose una muestra de <strong id="inf-ref-n">—</strong> participantes.
+        </div>
+        <button class="btn-copy" onclick="copiarParrafoInfinita()">Copiar párrafo de tesis</button>
+        <span class="copy-ok" id="inf-copy-ok">✔ Copiado</span>
+      </div>
+      <div style="margin-top:16px;">
+        <div class="f-label">Referencia APA 7</div>
+        <div class="latex-box">De la Puente Viedma, C. (2009). Estadística descriptiva e inferencial y una introducción al método científico. Editorial Complutense.</div>
+        <button class="btn-copy" onclick="copiarTexto(this,'De la Puente Viedma, C. (2009). Estadística descriptiva e inferencial y una introducción al método científico. Editorial Complutense.')">Copiar referencia APA 7</button>
+        <span class="copy-ok">✔ Copiado</span>
+        &nbsp;&nbsp;<button class="btn-copy" onclick="descargarRIS('infinita')">⬇ Descargar .ris</button>
+      </div>
+      <div class="donde" style="margin-top:14px;">
+        <strong>Nota:</strong> Este método es apropiado cuando el marco muestral es inaccesible, la población es muy grande (prácticamente infinita) o se trabaja con muestreo no probabilístico sin registro censal. Con los valores estándar (Z = 1.96, p = 0.50, e = 0.05) se obtiene n = 384, referencia habitual en estudios de ciencias sociales.
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer>EPG-UNASAM · Calculadora de Tamaño de Muestra · Huaraz, Áncash, Perú · idea de Antonio Lirio v2</footer>
 
 <script>
@@ -540,6 +619,25 @@ function calcPLS() {
   });
 }
 
+function calcInfinita() {
+  const z = parseFloat(document.getElementById('inf-Z').value);
+  const p = parseFloat(document.getElementById('inf-p').value);
+  const e = parseFloat(document.getElementById('inf-e').value);
+  document.getElementById('inf-p-val').textContent = p.toFixed(2);
+  document.getElementById('inf-e-val').textContent = e.toFixed(2);
+  const q = 1 - p;
+  const n = Math.ceil((z * z * p * q) / (e * e));
+  document.getElementById('inf-res').textContent = n;
+  document.getElementById('inf-desc').textContent =
+    `Z=${z} (${zConf(z)}) · p=${p.toFixed(2)} · q=${q.toFixed(2)} · e=${(e*100).toFixed(0)}% → n=${n}`;
+  document.getElementById('inf-ref-Z').textContent = zConf(z).replace('%','') + ' %';
+  document.getElementById('inf-ref-Zv').textContent = z;
+  document.getElementById('inf-ref-p').textContent = p.toFixed(2);
+  document.getElementById('inf-ref-q').textContent = q.toFixed(2);
+  document.getElementById('inf-ref-e').textContent = (e*100).toFixed(0) + ' %';
+  document.getElementById('inf-ref-n').textContent = n;
+}
+
 function zConf(z){return{'1.645':'90%','1.96':'95%','2.326':'98%','2.576':'99%'}[String(z)]||'';}
 
 function copiarTexto(btn,texto){
@@ -583,12 +681,23 @@ function copiarTextoPLS(){
   const txt=`El tamaño de muestra se determinó mediante el método de la raíz cuadrada inversa propuesto por Kock y Hadaya (2018), adoptado por Hair et al. (2021) para modelos PLS-SEM, el cual establece que n_min > (${k.toFixed(3)} / p_min)² para un nivel de significancia del ${sig} %. Considerando un coeficiente de ruta mínimo esperado de ${pmin.toFixed(2)}, un nivel de significancia de ${sig} % y una potencia estadística del 80 %, la muestra mínima recomendada es de ${n} participantes.`;
   navigator.clipboard.writeText(txt).then(()=>{const ok=document.getElementById('pls-copy-ok');ok.style.display='inline';setTimeout(()=>ok.style.display='none',2500);});
 }
+function copiarParrafoInfinita(){
+  const Z=document.getElementById('inf-ref-Z').textContent;
+  const Zv=document.getElementById('inf-ref-Zv').textContent;
+  const p=document.getElementById('inf-ref-p').textContent;
+  const q=document.getElementById('inf-ref-q').textContent;
+  const e=document.getElementById('inf-ref-e').textContent;
+  const n=document.getElementById('inf-ref-n').textContent;
+  const txt=`El tamaño de muestra se determinó aplicando la fórmula para poblaciones infinitas o de tamaño desconocido (De la Puente Viedma, 2009), dado que no se cuenta con un registro preciso del total de la población. Se consideró un nivel de confianza del ${Z} (Z = ${Zv}), una proporción esperada de ${p}, una proporción complementaria de ${q} y un margen de error del ${e} %, obteniéndose una muestra de ${n} participantes.`;
+  navigator.clipboard.writeText(txt).then(()=>{const ok=document.getElementById('inf-copy-ok');ok.style.display='inline';setTimeout(()=>ok.style.display='none',2500);});
+}
 
 const RIS_DATA={
   cochran:`TY  - BOOK\r\nAU  - Cochran, William G.\r\nTI  - Sampling Techniques\r\nET  - 3\r\nPB  - John Wiley & Sons\r\nPY  - 1977\r\nCY  - New York\r\nER  - `,
   yamane: `TY  - BOOK\r\nAU  - Yamane, Taro\r\nTI  - Statistics: An Introductory Analysis\r\nET  - 2\r\nPB  - Harper & Row\r\nPY  - 1967\r\nCY  - New York\r\nER  - `,
   kelley: `TY  - BOOK\r\nAU  - Kelley, W. M.\r\nAU  - Donnelly, R. A.\r\nTI  - The Humongous Book of Statistics Problems\r\nPB  - Alpha\r\nPY  - 2009\r\nCY  - New York\r\nSP  - 236\r\nER  - `,
-  pls:    `TY  - BOOK\r\nAU  - Hair, Joseph F.\r\nAU  - Hult, G. Tomas M.\r\nAU  - Ringle, Christian M.\r\nAU  - Sarstedt, Marko\r\nAU  - Danks, Nicholas P.\r\nAU  - Ray, Soumya\r\nTI  - Partial Least Squares Structural Equation Modeling (PLS-SEM) Using R\r\nPB  - Springer\r\nPY  - 2021\r\nDO  - 10.1007/978-3-030-80519-7\r\nSN  - 978-3-030-80518-0\r\nER  - `
+  pls:    `TY  - BOOK\r\nAU  - Hair, Joseph F.\r\nAU  - Hult, G. Tomas M.\r\nAU  - Ringle, Christian M.\r\nAU  - Sarstedt, Marko\r\nAU  - Danks, Nicholas P.\r\nAU  - Ray, Soumya\r\nTI  - Partial Least Squares Structural Equation Modeling (PLS-SEM) Using R\r\nPB  - Springer\r\nPY  - 2021\r\nDO  - 10.1007/978-3-030-80519-7\r\nSN  - 978-3-030-80518-0\r\nER  - `,
+  infinita:`TY  - BOOK\r\nAU  - De la Puente Viedma, Carlos\r\nTI  - Estadística descriptiva e inferencial y una introducción al método científico\r\nPB  - Editorial Complutense\r\nPY  - 2009\r\nCY  - Madrid\r\nER  - `
 };
 function descargarRIS(clave){
   const blob=new Blob([RIS_DATA[clave]],{type:'application/x-research-info-systems'});
@@ -598,7 +707,7 @@ function descargarRIS(clave){
   document.body.removeChild(a); URL.revokeObjectURL(a.href);
 }
 
-window.onload=()=>{calcCochran();calcYamane();calcKelley();calcPLS();};
+window.onload=()=>{calcCochran();calcYamane();calcKelley();calcPLS();calcInfinita();};
 </script>
 </body>
 </html>
